@@ -32,7 +32,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, 
 			"max(o.price) as max\r\n" +
 			"FROM order_details as o\r\n" +
 			"INNER JOIN products p ON o.product_id = p.product_id\r\n" +
-			"GROUP BY p.product_name,p.product_id;", nativeQuery = true)
+			"GROUP BY p.product_name,p.product_id, p.status;", nativeQuery = true)
 	public List<Object[]> repo();
 
 	// Statistics by category sold
@@ -119,7 +119,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, 
 					"(SELECT count(*)\r\n" +
 					"FROM order_details as o\r\n" +
 					"INNER JOIN products p ON o.product_id = p.product_id\r\n" +
-					"GROUP BY p.product_name) as ds",
+					"GROUP BY p.product_name, p.status) as ds",
 			nativeQuery = true)
 	public Page<Object[]> statisticsByProduct (Pageable pageable);
 
@@ -148,7 +148,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, 
 					"FROM order_details as o\r\n" +
 					"INNER JOIN products p ON o.product_id = p.product_id\r\n" +
 					"where p.product_name like %:keyword% \r\n" +
-					"GROUP BY p.product_name) as ds",
+					"GROUP BY p.product_name, p.status) as ds",
 			nativeQuery = true)
 	public Page<Object[]> statisticsByProductOfKey (@Param("keyword") String keyword,Pageable pageable);
 }
