@@ -1,0 +1,23 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+         google:
+          clientId: 200606681857-n84rkc0bcuh0aaisn0nfsb62uk7lu7ce.apps.googleusercontent.com
+          clientSecret: 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
+          scope:
+           - email
+           - profile
+                    
+         facebook:
+          clientId: 1575957066249509
+          clientSecret: 19a4222dd0b02ff41952b1c0459c065d
+          accessTokenUri: https://graph.facebook.com/oauth/access_token
+          userAuthorizationUri: https://www.facebook.com/dialog/oauth
+          tokenName: oauth_token
+          authenticationScheme: query
+          clientAuthenticationScheme: form
+          scope:
+           - email
+           - public_profile

@@ -1,0 +1,1 @@
+INSERT INTO `categories` VALUES (4,NULL,'Rau',1),(5,NULL,'Trái cây',1),(6,NULL,'Củ quả',1);

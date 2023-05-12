@@ -1,0 +1,17 @@
+.idCategory {
+	position: relative
+}
+
+.idCategory:after {
+	right: 1em;
+	content: "\2191";
+	font-size: 15px;
+	position: absolute;
+}
+
+.idCategory:before {
+	right: 0.5em;
+	content: "\2193";
+	font-size: 15px;
+	position: absolute;
+}
