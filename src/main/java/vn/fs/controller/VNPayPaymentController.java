@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import vn.fs.config.VNPayConfig;
 import vn.fs.model.dto.PaymentResDto;
 import vn.fs.model.dto.TransactionCompleteDto;
+import vn.fs.util.Utils;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController(value ="VNPay")
@@ -41,7 +42,6 @@ public class VNPayPaymentController {
         String bankCode = req.getParameter("bankCode");
         
         long amount = 100000000;
-        
         String vnp_TxnRef = VNPayConfig.getRandomNumber(8);
         String vnp_IpAddr = VNPayConfig.getIpAddress(req);
         String vnp_TmnCode = VNPayConfig.vnp_TmnCode;
@@ -66,7 +66,8 @@ public class VNPayPaymentController {
         } else {
             vnp_Params.put("vnp_Locale", "vn");
         }
-        vnp_Params.put("vnp_ReturnUrl", VNPayConfig.vnp_Returnurl);
+        String urlrtu= Utils.getBaseURL(req)+"/"+"checkout_success";
+        vnp_Params.put("vnp_ReturnUrl",urlrtu);
         vnp_Params.put("vnp_IpAddr", vnp_IpAddr);
 
         Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));

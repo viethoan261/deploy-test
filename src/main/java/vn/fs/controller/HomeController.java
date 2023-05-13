@@ -37,7 +37,7 @@ public class HomeController extends CommomController {
 	@Autowired
 	private IProductService productService;
 
-	@GetMapping(value = "/")
+	@GetMapping(value = {"/","home",""})
 	public String home(Model model, UserDto userDto) {
 
 		commomDataService.commonData(model, userDto);

@@ -3,7 +3,6 @@ package vn.fs.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -39,7 +38,7 @@ public class MoMoPayController {
 	public ResponseEntity<?>createMoMoPayment(HttpServletRequest req, HttpServletResponse resp) throws InvalidKeyException, NoSuchAlgorithmException, ClientProtocolException, IOException{
 		JSONObject json = new JSONObject();
 		long amount = 2000000;
-		long oder_id = 11;
+		long oder_id = 12;
 		String partnerCode = MomoPayConfig.PARTNER_CODE;
 		String accessKey = MomoPayConfig.ACCESS_KEY;
 		String secretKey = MomoPayConfig.SECRET_KEY;

@@ -73,14 +73,13 @@ public class OrderDetailService implements IOrderDetailService {
 		List<Object[]> objects = page.getContent();
 		for (Object[] object : objects) {
 			StatisticalOrderDetailOfProduct orderDetailOfProduct = new StatisticalOrderDetailOfProduct();
-			orderDetailOfProduct.setProductId(Long.parseLong(object[0].toString()));
-			orderDetailOfProduct.setProductName(object[1].toString());
-			orderDetailOfProduct.setStatus(Boolean.parseBoolean(object[2].toString()));
-			orderDetailOfProduct.setQuantity(Integer.parseInt(object[3].toString()));
-			orderDetailOfProduct.setSumPrice(Double.parseDouble(object[4].toString()));
-			orderDetailOfProduct.setAveragePrice(Double.parseDouble(object[5].toString()));
-			orderDetailOfProduct.setMinimumPrice(Double.parseDouble(object[6].toString()));
-			orderDetailOfProduct.setMaximumPrice(Double.parseDouble(object[7].toString()));
+			orderDetailOfProduct.setProductName(object[0].toString());
+			orderDetailOfProduct.setStatus(Boolean.parseBoolean(object[1].toString()));
+			orderDetailOfProduct.setQuantity(Integer.parseInt(object[2].toString()));
+			orderDetailOfProduct.setSumPrice(Double.parseDouble(object[3].toString()));
+			orderDetailOfProduct.setAveragePrice(Double.parseDouble(object[4].toString()));
+			orderDetailOfProduct.setMinimumPrice(Double.parseDouble(object[5].toString()));
+			orderDetailOfProduct.setMaximumPrice(Double.parseDouble(object[6].toString()));
 			statisticalOrderDetailOfProducts.add(orderDetailOfProduct);
 		}
 		return statisticalOrderDetailOfProducts;

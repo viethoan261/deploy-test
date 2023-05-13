@@ -55,7 +55,7 @@ public class LoadImageController {
 	@ResponseBody
 	public byte[] upload(@RequestParam(value = "imageName") String imageName, HttpServletResponse response)
 			throws IOException {
-		response.setContentType("image/jpeg");
+		response.setContentType("image/png");
 		File file = new File(pathUploadImageQRCode + File.separatorChar + imageName);
 		InputStream inputStream = null;
 		if (file.exists()) {
